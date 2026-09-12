@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Gunter Boys Vending</title>
+  <meta name="description" content="Gunter Boys Vending - vending machine service, repairs, restocking and support.">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f4f7fb;
+      color: #172033;
+      line-height: 1.6;
+    }
+
+    /* NAVBAR */
+
+    header {
+      background: #111827;
+      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 3px 15px rgba(0,0,0,0.15);
+    }
+
+    .navbar {
+      max-width: 1150px;
+      margin: auto;
+      padding: 18px 25px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: 800;
+    }
+
+    .logo span {
+      color: #3b82f6;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 25px;
+      font-weight: 600;
+    }
+
+    nav a:hover {
+      color: #60a5fa;
+    }
+
+    /* HERO */
+
+    .hero {
+      background:
+        linear-gradient(
+          rgba(17, 24, 39, 0.88),
+          rgba(17, 24, 39, 0.88)
+        ),
+        linear-gradient(135deg, #2563eb, #111827);
+
+      color: white;
+      text-align: center;
+      padding: 110px 20px;
+    }
+
+    .hero h1 {
+      font-size: 52px;
+      margin-bottom: 15px;
+    }
+
+    .hero h1 span {
+      color: #60a5fa;
+    }
+
+    .hero p {
+      font-size: 20px;
+      max-width: 700px;
+      margin: auto;
+      color: #dbeafe;
+    }
+
+    .button {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 15px 25px;
+      background: #2563eb;
+      color: white;
+      border-radius: 9px;
+      text-decoration: none;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .button:hover {
+      background: #1d4ed8;
+      transform: translateY(-1px);
+    }
+
+    /* SECTIONS */
+
+    .section {
+      max-width: 1100px;
+      margin: auto;
+      padding: 80px 20px;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 35px;
+      margin-bottom: 15px;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: #64748b;
+      max-width: 650px;
+      margin: 0 auto 45px;
+    }
+
+    /* SERVICES */
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .service-card {
+      background: white;
+      padding: 35px 25px;
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: 0 5px 25px rgba(0,0,0,0.07);
+      transition: 0.2s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+    }
+
+    .service-icon {
+      font-size: 45px;
+      margin-bottom: 15px;
+    }
+
+    .service-card h3 {
+      margin-bottom: 10px;
+      font-size: 22px;
+    }
+
+    .service-card p {
+      color: #64748b;
+    }
+
+    /* ABOUT */
+
+    .about {
+      background: white;
+    }
+
+    .about-content {
+      max-width: 800px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .about-content p {
+      color: #64748b;
+      font-size: 18px;
+      margin-bottom: 15px;
+    }
+
+    /* REQUEST FORM */
+
+    .request-section {
+      background: #eef4ff;
+    }
+
+    .form-container {
+      max-width: 700px;
+      margin: auto;
+      background: white;
+      padding: 35px;
+      border-radius: 15px;
+      box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 7px;
+      font-weight: bold;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      padding: 13px;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      font-size: 16px;
+      font-family: inherit;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      outline: none;
+      border-color: #2563eb;
+      box-shadow: 0 0 0 3px rgba(37,99,235,0.12);
+    }
+
+    textarea {
+      min-height: 140px;
+      resize: vertical;
+    }
+
+    .submit-button {
+      width: 100%;
+    }
+
+    /* CONTACT */
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 25px;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .contact-card {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: 0 5px 25px rgba(0,0,0,0.07);
+    }
+
+    .contact-card .icon {
+      font-size: 35px;
+      margin-bottom: 10px;
+    }
+
+    .contact-card h3 {
+      margin-bottom: 8px;
+    }
+
+    .contact-card a {
+      color: #2563eb;
+      text-decoration: none;
+    }
+
+    /* FOOTER */
+
+    footer {
+      background: #111827;
+      color: #cbd5e1;
+      text-align: center;
+      padding: 30px 20px;
+    }
+
+    footer strong {
+      color: white;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 750px) {
+
+      .navbar {
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      nav a {
+        margin: 0 7px;
+        font-size: 14px;
+      }
+
+      .hero {
+        padding: 80px 20px;
+      }
+
+      .hero h1 {
+        font-size: 38px;
+      }
+
+      .services {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section {
+        padding: 60px 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+
+<header>
+
+  <div class="navbar">
+
+    <div class="logo">
+      Gunter Boys <span>Vending</span>
+    </div>
+
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#request">Request Help</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+  </div>
+
+</header>
+
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+  <h1>
+    Gunter Boys <span>Vending</span>
+  </h1>
+
+  <p>
+    Reliable vending machine service, restocking,
+    repairs and customer support.
+  </p>
+
+  <a href="#request" class="button">
+    Request Service
+  </a>
+
+</section>
+
+
+<!-- SERVICES -->
+
+<section class="section" id="services">
+
+  <h2 class="section-title">
+    Our Services
+  </h2>
+
+  <p class="section-subtitle">
+    Having an issue with a vending machine?
+    Let us know and we'll help get it taken care of.
+  </p>
+
+  <div class="services">
+
+    <div class="service-card">
+
+      <div class="service-icon">
+        🔧
+      </div>
+
+      <h3>
+        Machine Repairs
+      </h3>
+
+      <p>
+        Report vending machine problems,
+        broken parts, jams or other issues.
+      </p>
+
+    </div>
+
+
+    <div class="service-card">
+
+      <div class="service-icon">
+        📦
+      </div>
+
+      <h3>
+        Restocking
+      </h3>
+
+      <p>
+        Need products restocked?
+        Send us a request and we'll take care of it.
+      </p>
+
+    </div>
+
+
+    <div class="service-card">
+
+      <div class="service-icon">
+        💳
+      </div>
+
+      <h3>
+        Payment Problems
+      </h3>
+
+      <p>
+        Report problems with cash validators,
+        card readers or vending payments.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ABOUT -->
+
+<section class="about" id="about">
+
+  <div class="section">
+
+    <h2 class="section-title">
+      About Gunter Boys Vending
+    </h2>
+
+    <div class="about-content">
+
+      <p>
+        Gunter Boys Vending provides vending machine
+        service and support for locations in our service area.
+      </p>
+
+      <p>
+        If a machine isn't working correctly, needs
+        restocking, or has a payment problem, use the
+        service request form and tell us what's happening.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- REQUEST SERVICE -->
+
+<section class="request-section" id="request">
+
+  <div class="section">
+
+    <h2 class="section-title">
+      Request Service
+    </h2>
+
+    <p class="section-subtitle">
+      Fill out the form below to tell us about the problem.
+    </p>
+
+
+    <div class="form-container">
+
+      <form id="serviceForm">
+
+        <div class="form-group">
+
+          <label for="name">
+            Your Name
+          </label>
+
+          <input
+            type="text"
+            id="name"
+            placeholder="Enter your name"
+            required
+          >
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label for="location">
+            Machine Location
+          </label>
+
+          <input
+            type="text"
+            id="location"
+            placeholder="Where is the machine?"
+            required
+          >
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label for="issue">
+            What do you need help with?
+          </label>
+
+          <select id="issue" required>
+
+            <option value="">
+              Select an option
+            </option>
+
+            <option>
+              Machine is not working
+            </option>
+
+            <option>
+              Machine needs restocking
+            </option>
+
+            <option>
+              Cash / bill acceptor problem
+            </option>
+
+            <option>
+              Card reader / payment problem
+            </option>
+
+            <option>
+              Product problem
+            </option>
+
+            <option>
+              Other
+            </option>
+
+          </select>
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label for="message">
+            Describe the Problem
+          </label>
+
+          <textarea
+            id="message"
+            placeholder="Tell us what is happening..."
+            required
+          ></textarea>
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label for="contactInfo">
+            Phone or Email
+          </label>
+
+          <input
+            type="text"
+            id="contactInfo"
+            placeholder="How can we contact you?"
+            required
+          >
+
+        </div>
+
+
+        <button
+          type="submit"
+          class="button submit-button"
+        >
+          Send Service Request
+        </button>
+
+      </form>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section class="section" id="contact">
+
+  <h2 class="section-title">
+    Contact Us
+  </h2>
+
+  <p class="section-subtitle">
+    Have a question? Contact Gunter Boys Vending.
+  </p>
+
+
+  <div class="contact-grid">
+
+    <div class="contact-card">
+
+      <div class="icon">
+        📞
+      </div>
+
+      <h3>
+        Phone
+      </h3>
+
+      <!-- CHANGE THIS NUMBER -->
+
+      <a href="tel:+10000000000">
+        (000) 000-0000
+      </a>
+
+    </div>
+
+
+    <div class="contact-card">
+
+      <div class="icon">
+        ✉️
+      </div>
+
+      <h3>
+        Email
+      </h3>
+
+      <!-- CHANGE THIS EMAIL -->
+
+      <a href="mailto:YOUR-EMAIL@example.com">
+        misterikester@gmail.com
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+  <p>
+    © 2026 <strong>Gunter Boys Vending</strong>
+  </p>
+
+  <p>
+    Vending machine service & support
+  </p>
+
+</footer>
+
+
+<!-- FORM SCRIPT -->
+
+<script>
+
+document
+  .getElementById("serviceForm")
+  .addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    /*
+      IMPORTANT:
+
+      Change the email below to the email
+      where you want service requests sent.
+    */
+
+    const businessEmail =
+      "Misterikester@gmail.com";
+
+
+    const name =
+      document.getElementById("name").value;
+
+    const location =
+      document.getElementById("location").value;
+
+    const issue =
+      document.getElementById("issue").value;
+
+    const message =
+      document.getElementById("message").value;
+
+    const contact =
+      document.getElementById("contactInfo").value;
+
+
+    const subject =
+      encodeURIComponent(
+        "Gunter Boys Vending Service Request"
+      );
+
+
+    const body =
+      encodeURIComponent(
+
+        "NEW VENDING SERVICE REQUEST\n\n" +
+
+        "Customer Name: " +
+        name +
+
+        "\n\nMachine Location: " +
+        location +
+
+        "\n\nIssue: " +
+        issue +
+
+        "\n\nDescription:\n" +
+        message +
+
+        "\n\nCustomer Contact: " +
+        contact
+
+      );
+
+
+    window.location.href =
+      "mailto:" +
+      businessEmail +
+      "?subject=" +
+      subject +
+      "&body=" +
+      body;
+
+  });
+
+</script>
+
+</body>
+</html>
