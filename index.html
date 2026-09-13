@@ -104,5 +104,117 @@
       padding: 30px;
       background: #111827;
       color: white;
-      margin-top: 4
+      margin-top: 40px;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>Gunter Boys Vending</h1>
+  <p>Reliable vending machine service and support</p>
+</header>
+
+<div class="container">
+
+  <div class="card">
+    <h2>Need Help?</h2>
+    <p>
+      Having a problem with one of our vending machines?
+      Use the form below to send us a request.
+    </p>
+
+    <!-- FORMSPREE FORM -->
+    <form action="https://formspree.io/f/xoeqoarg" method="POST">
+
+      <label for="name">Your Name</label>
+      <input
+        type="text"
+        id="name"
+        name="name"
+        placeholder="Your name"
+        required
+      >
+
+      <label for="email">Your Email</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        placeholder="you@example.com"
+        required
+      >
+
+      <label for="request">What do you need help with?</label>
+      <select id="request" name="request" required>
+        <option value="">Select one</option>
+        <option value="Machine Problem">Machine Problem</option>
+        <option value="Refund Request">Refund Request</option>
+        <option value="Product Request">Product Request</option>
+        <option value="Restock Request">Restock Request</option>
+        <option value="Other">Other</option>
+      </select>
+
+      <label for="message">Message</label>
+      <textarea
+        id="message"
+        name="message"
+        placeholder="Tell us what happened..."
+        required
+      ></textarea>
+
+      <button type="submit">Send Request</button>
+
+    </form>
+  </div>
+
+  <div class="card">
+    <h2>Suggest Something to Carry</h2>
+
+    <div class="suggestions">
+      <p>
+        Want us to carry a specific snack or drink?
+        Tell us what you would like to see in the machine.
+      </p>
+
+      <form action="https://formspree.io/f/xoeqoarg" method="POST">
+
+        <input
+          type="hidden"
+          name="request_type"
+          value="Product Suggestion"
+        >
+
+        <label for="suggestion">What should we carry?</label>
+        <input
+          type="text"
+          id="suggestion"
+          name="suggestion"
+          placeholder="Example: Sprite, Doritos, M&M's"
+          required
+        >
+
+        <label for="suggestion_message">Anything else?</label>
+        <textarea
+          id="suggestion_message"
+          name="suggestion_message"
+          placeholder="Optional"
+        ></textarea>
+
+        <button type="submit">Send Suggestion</button>
+
+      </form>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <p>© 2026 Gunter Boys Vending</p>
+  <p>Thank you for supporting our business!</p>
+</footer>
+
+</body>
+</html>
 ```
