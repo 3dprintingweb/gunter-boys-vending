@@ -38,7 +38,7 @@
     }
 
     .container {
-      max-width: 850px;
+      max-width: 900px;
       margin: 40px auto;
       padding: 0 20px;
     }
@@ -47,12 +47,18 @@
       background: white;
       border-radius: 14px;
       padding: 30px;
+      margin-bottom: 30px;
       box-shadow: 0 4px 18px rgba(0,0,0,0.08);
     }
 
     h2 {
       margin-top: 0;
       font-size: 28px;
+    }
+
+    .subtitle {
+      color: #555;
+      line-height: 1.5;
     }
 
     label {
@@ -95,12 +101,29 @@
       background: #1d4ed8;
     }
 
+    .suggest-button {
+      background: #16a34a;
+    }
+
+    .suggest-button:hover {
+      background: #15803d;
+    }
+
     .info {
-      margin-top: 30px;
+      margin-top: 25px;
       padding: 18px;
       background: #eff6ff;
       border-radius: 10px;
       border-left: 5px solid #2563eb;
+    }
+
+    .suggest-info {
+      background: #f0fdf4;
+      border-left-color: #16a34a;
+    }
+
+    .required {
+      color: #dc2626;
     }
 
     footer {
@@ -109,8 +132,10 @@
       color: #6b7280;
     }
 
-    .required {
-      color: #dc2626;
+    hr {
+      border: none;
+      border-top: 1px solid #e5e7eb;
+      margin: 10px 0 30px;
     }
   </style>
 </head>
@@ -124,59 +149,61 @@
 
 <div class="container">
 
+  <!-- REPORT A PROBLEM -->
   <div class="card">
 
-    <h2>Submit a Request</h2>
+    <h2>🛠️ Report a Problem</h2>
 
-    <p>
+    <p class="subtitle">
       Having a problem with one of our vending machines?
       Fill out the form below and we'll receive your request.
     </p>
 
-    <!-- FORM -->
-    <!-- Replace YOUR_FORMSPREE_ID with your Formspree form ID -->
-    <form action="https://formspree.io/f/xoeqoarg" method="POST">
+    <!-- CHANGE YOUR_FORMSPREE_ID TO YOUR REAL FORMSPREE ID -->
+    <form action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
 
-      <label for="name">
+      <input type="hidden" name="form_type" value="Vending Machine Problem">
+
+      <label for="problem-name">
         Your Name <span class="required">*</span>
       </label>
 
       <input
         type="text"
-        id="name"
+        id="problem-name"
         name="name"
         placeholder="Your name"
         required
       >
 
-      <label for="email">
+      <label for="problem-email">
         Your Email <span class="required">*</span>
       </label>
 
       <input
         type="email"
-        id="email"
+        id="problem-email"
         name="email"
         placeholder="your@email.com"
         required
       >
 
-      <label for="location">
+      <label for="problem-location">
         Machine Location
       </label>
 
       <input
         type="text"
-        id="location"
-        name="location"
+        id="problem-location"
+        name="machine_location"
         placeholder="Where is the vending machine?"
       >
 
-      <label for="request">
-        Request Type <span class="required">*</span>
+      <label for="problem-type">
+        Problem Type <span class="required">*</span>
       </label>
 
-      <select id="request" name="request_type" required>
+      <select id="problem-type" name="problem_type" required>
         <option value="">Select one</option>
         <option value="Machine not working">Machine not working</option>
         <option value="Product problem">Product problem</option>
@@ -185,19 +212,19 @@
         <option value="Other">Other</option>
       </select>
 
-      <label for="message">
+      <label for="problem-message">
         What happened? <span class="required">*</span>
       </label>
 
       <textarea
-        id="message"
+        id="problem-message"
         name="message"
         placeholder="Tell us what happened..."
         required
       ></textarea>
 
       <button type="submit">
-        Send Request
+        Send Problem Report
       </button>
 
     </form>
@@ -205,6 +232,91 @@
     <div class="info">
       <strong>Need help?</strong><br>
       Please give us as much information as possible so we can help you quickly.
+    </div>
+
+  </div>
+
+
+  <!-- PRODUCT SUGGESTIONS -->
+  <div class="card">
+
+    <h2>💡 Suggest a Product</h2>
+
+    <p class="subtitle">
+      Want to see something new in one of our vending machines?
+      Tell us what you'd like us to carry!
+    </p>
+
+    <hr>
+
+    <form action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
+
+      <input type="hidden" name="form_type" value="Product Suggestion">
+
+      <label for="suggest-name">
+        Your Name
+      </label>
+
+      <input
+        type="text"
+        id="suggest-name"
+        name="name"
+        placeholder="Your name"
+      >
+
+      <label for="suggest-email">
+        Your Email <small>(optional)</small>
+      </label>
+
+      <input
+        type="email"
+        id="suggest-email"
+        name="email"
+        placeholder="your@email.com"
+      >
+
+      <label for="suggest-location">
+        Machine Location
+      </label>
+
+      <input
+        type="text"
+        id="suggest-location"
+        name="machine_location"
+        placeholder="Which vending machine?"
+      >
+
+      <label for="product">
+        What product should we carry? <span class="required">*</span>
+      </label>
+
+      <input
+        type="text"
+        id="product"
+        name="suggested_product"
+        placeholder="Example: Gatorade, Takis, candy, chips..."
+        required
+      >
+
+      <label for="suggestion-message">
+        Any details?
+      </label>
+
+      <textarea
+        id="suggestion-message"
+        name="suggestion_details"
+        placeholder="Tell us why you'd like this product or anything else you'd like us to know..."
+      ></textarea>
+
+      <button type="submit" class="suggest-button">
+        Send Product Suggestion
+      </button>
+
+    </form>
+
+    <div class="info suggest-info">
+      <strong>Have a good idea?</strong><br>
+      We can't guarantee every suggestion will be added, but we appreciate your ideas!
     </div>
 
   </div>
