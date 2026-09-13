@@ -1,53 +1,84 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gunter Boys Vending</title>
+
   <style>
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: #f4f6f8;
+      font-family: Arial, sans-serif;
+      background: #f4f7fb;
       color: #222;
     }
+
     header {
       background: #111827;
       color: white;
       text-align: center;
       padding: 45px 20px;
     }
-    header h1 { margin: 0; font-size: 42px; }
-    header p { font-size: 18px; margin-top: 10px; color: #d1d5db; }
-    .container { max-width: 900px; margin: 40px auto; padding: 0 20px; }
+
+    header h1 {
+      margin: 0;
+      font-size: 42px;
+    }
+
+    header p {
+      font-size: 18px;
+      margin-top: 10px;
+    }
+
+    .container {
+      max-width: 850px;
+      margin: 35px auto;
+      padding: 0 20px;
+    }
+
     .card {
       background: white;
-      border-radius: 14px;
       padding: 30px;
-      margin-bottom: 30px;
-      box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+      margin-bottom: 25px;
+      border-radius: 14px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
     }
-    h2 { margin-top: 0; font-size: 28px; }
-    .subtitle { color: #555; line-height: 1.5; }
+
+    h2 {
+      margin-top: 0;
+      color: #111827;
+    }
+
     label {
       display: block;
-      font-weight: bold;
       margin-top: 18px;
       margin-bottom: 7px;
+      font-weight: bold;
     }
-    input, select, textarea {
+
+    input,
+    textarea,
+    select {
       width: 100%;
       padding: 13px;
-      border: 1px solid #cbd5e1;
+      border: 1px solid #ccc;
       border-radius: 8px;
       font-size: 16px;
-      font-family: inherit;
     }
-    textarea { min-height: 140px; resize: vertical; }
+
+    textarea {
+      min-height: 130px;
+      resize: vertical;
+    }
+
     button {
       width: 100%;
-      margin-top: 25px;
+      margin-top: 22px;
       padding: 15px;
       background: #2563eb;
       color: white;
@@ -57,119 +88,21 @@
       font-weight: bold;
       cursor: pointer;
     }
-    button:hover { background: #1d4ed8; }
-    .suggest-button { background: #16a34a; }
-    .suggest-button:hover { background: #15803d; }
-    .info {
-      margin-top: 25px;
-      padding: 18px;
-      background: #eff6ff;
+
+    button:hover {
+      background: #1d4ed8;
+    }
+
+    .suggestions {
+      background: #eef4ff;
+      padding: 20px;
       border-radius: 10px;
-      border-left: 5px solid #2563eb;
     }
-    .suggest-info { background: #f0fdf4; border-left-color: #16a34a; }
-    .required { color: #dc2626; }
-    footer { text-align: center; padding: 30px; color: #6b7280; }
-    hr { border: none; border-top: 1px solid #e5e7eb; margin: 10px 0 30px; }
-    @media (max-width: 600px) {
-      header h1 { font-size: 32px; }
-      .card { padding: 22px; }
-    }
-  </style>
-</head>
-<body>
 
-<header>
-  <h1>Gunter Boys Vending</h1>
-  <p>Vending machine service & customer support</p>
-</header>
-
-<div class="container">
-
-  <div class="card">
-    <h2>🛠️ Report a Problem</h2>
-    <p class="subtitle">
-      Having a problem with one of our vending machines?
-      Fill out the form below and we'll receive your request.
-    </p>
-
-    <form action="https://formspree.io/f/xoeqoarg" method="POST">
-      <input type="hidden" name="form_type" value="Vending Machine Problem">
-
-      <label for="problem-name">Your Name <span class="required">*</span></label>
-      <input type="text" id="problem-name" name="name" placeholder="Your name" required>
-
-      <label for="problem-email">Your Email <span class="required">*</span></label>
-      <input type="email" id="problem-email" name="email" placeholder="your@email.com" required>
-
-      <label for="problem-location">Machine Location</label>
-      <input type="text" id="problem-location" name="machine_location" placeholder="Where is the vending machine?">
-
-      <label for="problem-type">Problem Type <span class="required">*</span></label>
-      <select id="problem-type" name="problem_type" required>
-        <option value="">Select one</option>
-        <option value="Machine not working">Machine not working</option>
-        <option value="Product problem">Product problem</option>
-        <option value="Payment problem">Payment problem</option>
-        <option value="Refund request">Refund request</option>
-        <option value="Other">Other</option>
-      </select>
-
-      <label for="problem-message">What happened? <span class="required">*</span></label>
-      <textarea id="problem-message" name="message" placeholder="Tell us what happened..." required></textarea>
-
-      <button type="submit">Send Problem Report</button>
-    </form>
-
-    <div class="info">
-      <strong>Need help?</strong><br>
-      Please give us as much information as possible so we can help you quickly.
-    </div>
-  </div>
-
-  <div class="card">
-    <h2>💡 Suggest a Product</h2>
-    <p class="subtitle">
-      Want to see something new in one of our vending machines?
-      Tell us what you'd like us to carry!
-    </p>
-
-    <hr>
-
-    <form action="https://formspree.io/f/xoeqoarg" method="POST">
-      <input type="hidden" name="form_type" value="Product Suggestion">
-
-      <label for="suggest-name">Your Name</label>
-      <input type="text" id="suggest-name" name="name" placeholder="Your name">
-
-      <label for="suggest-email">Your Email <small>(optional)</small></label>
-      <input type="email" id="suggest-email" name="email" placeholder="your@email.com">
-
-      <label for="suggest-location">Machine Location</label>
-      <input type="text" id="suggest-location" name="machine_location" placeholder="Which vending machine?">
-
-      <label for="product">What product should we carry? <span class="required">*</span></label>
-      <input type="text" id="product" name="suggested_product"
-             placeholder="Example: Gatorade, Takis, candy, chips..." required>
-
-      <label for="suggestion-message">Any details?</label>
-      <textarea id="suggestion-message" name="suggestion_details"
-                placeholder="Tell us why you'd like this product or anything else you'd like us to know..."></textarea>
-
-      <button type="submit" class="suggest-button">Send Product Suggestion</button>
-    </form>
-
-    <div class="info suggest-info">
-      <strong>Have a good idea?</strong><br>
-      We can't guarantee every suggestion will be added, but we appreciate your ideas!
-    </div>
-  </div>
-
-</div>
-
-<footer>
-  © 2026 Gunter Boys Vending
-</footer>
-
-</body>
-</html>
+    footer {
+      text-align: center;
+      padding: 30px;
+      background: #111827;
+      color: white;
+      margin-top: 4
+```
