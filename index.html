@@ -7,14 +7,10 @@
   <title>Gunter Boys Vending</title>
 
   <style>
-    * {
-      box-sizing: border-box;
-    }
-
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: #f4f7fb;
+      background: #f2f2f2;
       color: #222;
     }
 
@@ -22,70 +18,68 @@
       background: #111827;
       color: white;
       text-align: center;
-      padding: 45px 20px;
+      padding: 40px 20px;
     }
 
     header h1 {
       margin: 0;
-      font-size: 42px;
+      font-size: 40px;
     }
 
     header p {
       font-size: 18px;
-      margin-top: 10px;
     }
 
-    .container {
-      max-width: 850px;
-      margin: 35px auto;
-      padding: 0 20px;
+    main {
+      max-width: 700px;
+      margin: 30px auto;
+      padding: 20px;
     }
 
-    .card {
+    .box {
       background: white;
-      padding: 30px;
+      padding: 25px;
       margin-bottom: 25px;
-      border-radius: 14px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+      border-radius: 12px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.1);
     }
 
     h2 {
       margin-top: 0;
-      color: #111827;
     }
 
     label {
       display: block;
-      margin-top: 18px;
-      margin-bottom: 7px;
+      margin-top: 15px;
+      margin-bottom: 5px;
       font-weight: bold;
     }
 
     input,
-    textarea,
-    select {
+    select,
+    textarea {
       width: 100%;
-      padding: 13px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
+      padding: 12px;
       font-size: 16px;
+      border: 1px solid #bbb;
+      border-radius: 6px;
+      box-sizing: border-box;
     }
 
     textarea {
-      min-height: 130px;
-      resize: vertical;
+      height: 120px;
     }
 
     button {
       width: 100%;
-      margin-top: 22px;
-      padding: 15px;
-      background: #2563eb;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      font-size: 18px;
+      margin-top: 20px;
+      padding: 14px;
+      font-size: 17px;
       font-weight: bold;
+      color: white;
+      background: #2563eb;
+      border: none;
+      border-radius: 6px;
       cursor: pointer;
     }
 
@@ -93,18 +87,12 @@
       background: #1d4ed8;
     }
 
-    .suggestions {
-      background: #eef4ff;
-      padding: 20px;
-      border-radius: 10px;
-    }
-
     footer {
       text-align: center;
-      padding: 30px;
       background: #111827;
       color: white;
-      margin-top: 40px;
+      padding: 25px;
+      margin-top: 30px;
     }
   </style>
 </head>
@@ -113,106 +101,79 @@
 
 <header>
   <h1>Gunter Boys Vending</h1>
-  <p>Reliable vending machine service and support</p>
+  <p>Vending Machine Service & Support</p>
 </header>
 
-<div class="container">
+<main>
 
-  <div class="card">
+  <div class="box">
     <h2>Need Help?</h2>
+
     <p>
       Having a problem with one of our vending machines?
-      Use the form below to send us a request.
+      Send us a message and we'll get back to you.
     </p>
 
-    <!-- FORMSPREE FORM -->
     <form action="https://formspree.io/f/xoeqoarg" method="POST">
 
-      <label for="name">Your Name</label>
-      <input
-        type="text"
-        id="name"
-        name="name"
-        placeholder="Your name"
-        required
-      >
+      <label>Name</label>
+      <input type="text" name="name" required>
 
-      <label for="email">Your Email</label>
-      <input
-        type="email"
-        id="email"
-        name="email"
-        placeholder="you@example.com"
-        required
-      >
+      <label>Email</label>
+      <input type="email" name="email" required>
 
-      <label for="request">What do you need help with?</label>
-      <select id="request" name="request" required>
-        <option value="">Select one</option>
+      <label>What do you need help with?</label>
+      <select name="problem" required>
+        <option value="">Choose one</option>
         <option value="Machine Problem">Machine Problem</option>
-        <option value="Refund Request">Refund Request</option>
+        <option value="Refund">Refund</option>
+        <option value="Restock">Restock</option>
         <option value="Product Request">Product Request</option>
-        <option value="Restock Request">Restock Request</option>
         <option value="Other">Other</option>
       </select>
 
-      <label for="message">Message</label>
-      <textarea
-        id="message"
-        name="message"
-        placeholder="Tell us what happened..."
-        required
-      ></textarea>
+      <label>Message</label>
+      <textarea name="message" required></textarea>
 
       <button type="submit">Send Request</button>
 
     </form>
   </div>
 
-  <div class="card">
+
+  <div class="box">
     <h2>Suggest Something to Carry</h2>
 
-    <div class="suggestions">
-      <p>
-        Want us to carry a specific snack or drink?
-        Tell us what you would like to see in the machine.
-      </p>
+    <p>
+      Is there a snack or drink you would like us to sell?
+      Let us know!
+    </p>
 
-      <form action="https://formspree.io/f/xoeqoarg" method="POST">
+    <form action="https://formspree.io/f/xoeqoarg" method="POST">
 
-        <input
-          type="hidden"
-          name="request_type"
-          value="Product Suggestion"
-        >
+      <input type="hidden" name="type" value="Product Suggestion">
 
-        <label for="suggestion">What should we carry?</label>
-        <input
-          type="text"
-          id="suggestion"
-          name="suggestion"
-          placeholder="Example: Sprite, Doritos, M&M's"
-          required
-        >
+      <label>Your Name</label>
+      <input type="text" name="name">
 
-        <label for="suggestion_message">Anything else?</label>
-        <textarea
-          id="suggestion_message"
-          name="suggestion_message"
-          placeholder="Optional"
-        ></textarea>
+      <label>Email</label>
+      <input type="email" name="email">
 
-        <button type="submit">Send Suggestion</button>
+      <label>What should we carry?</label>
+      <input type="text" name="suggestion" required>
 
-      </form>
-    </div>
+      <label>Anything else?</label>
+      <textarea name="details"></textarea>
+
+      <button type="submit">Send Suggestion</button>
+
+    </form>
   </div>
 
-</div>
+</main>
 
 <footer>
-  <p>© 2026 Gunter Boys Vending</p>
-  <p>Thank you for supporting our business!</p>
+  © 2026 Gunter Boys Vending
 </footer>
 
 </body>
